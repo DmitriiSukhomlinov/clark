@@ -33,7 +33,6 @@
 #include <iomanip>
 #include <stdint.h>
 #include "./file.hh"
-#include "FILEex.h"
 #include <map>
 using namespace std;
 
@@ -88,7 +87,7 @@ int main(int argc, char** argv)
 	cerr << "Loading accession number of all files... " ;
 	while (getLineFromFile(meta_f, file))
 	{
-		FILEex * fd = fopenEx(file.c_str(), "r");
+		FILE * fd = fopen(file.c_str(), "r");
 		if (fd == NULL)
 		{
 			cerr << "Failed to open sequence file: " <<  file << endl;
